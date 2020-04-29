@@ -27,7 +27,7 @@ const HeroSection = () => (
                     fluid={imageData}
                     backgroundColor={`#040e18`}
                 >
-                    <h2>Selah Roofing</h2>
+                    <h2>Free Quote</h2>
                 </StyledHero>
             )
         }}

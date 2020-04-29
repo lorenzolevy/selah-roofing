@@ -16,6 +16,7 @@
     "gatsby-source-wordpress": "^3.2.6",
     "gatsby-transformer-sharp": "^2.4.3",
     "html-react-parser": "^0.10.3",
+    "innertext": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

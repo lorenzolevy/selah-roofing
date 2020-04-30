@@ -6,10 +6,10 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Quote" />
-    <form method="post" data-netlify="true">
+    <form name="quote" method="POST" data-netlify="true">
         <input type="text" name="name" id="name" placeholder="John Doe" />
-        <input type="email" name="email" id="email" placeholder="johndoe@gmail.com" />
-        <textarea type="text" name="message" id="message" placeholder="Enter Message Text" />
+        <input type="email" name="email" placeholder="johndoe@gmail.com" />
+        <textarea type="text" name="message" placeholder="Enter Message Text" />
         <button type="submit">Send</button>
     </form>
   </Layout>

@@ -3,7 +3,7 @@ import Hero from "../components/hero"
 import Layout from "../layouts/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const QuotePage = () => (
   <Layout>
     <SEO title="Quote" />
     <form name="quote" method="POST" data-netlify="true">
@@ -15,4 +15,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default QuotePage

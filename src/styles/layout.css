@@ -1,3 +1,19 @@
+.offset {
+  padding-left: .2rem;
+}
+
+.fslightbox-toolbar > div[title="Enter fullscreen"] {
+  display: none;
+}
+
+.error {
+ color: rgba(128, 193, 255, 0.98);
+ font-family: Rubik;
+ margin-bottom: .2rem;
+ margin-top: -.5rem;
+ font-size: .8rem;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -105,19 +121,50 @@ hr {
   height: 0;
   overflow: visible;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: hsla(210,20%,90%,.9);
+  -webkit-box-shadow: 0 0 0 30px #33404d inset !important;
+}
+
+select > option {
+  background-color: hsla(210,20%,25%, 1);
+}
 button,
 input,
 optgroup,
 select,
-textarea {
-  font: inherit;
+textarea  {
+
+  color: hsla(210,20%,90%,.9);
+  font-family: Source Sans Pro;
+  background-color: hsla(210,20%,25%, .3);
   margin: 0;
+  border: none;
+  padding: 0 1rem;
+  border-radius: 0;
+  text-decoration: none;
+  font-size: 1rem;
 }
+
+input:focus {
+  border-color: rgba(128, 193, 255, 0.98);
+}
+
 optgroup {
   font-weight: 700;
 }
 button,
 input {
+  
   overflow: visible;
 }
 button,

@@ -8,6 +8,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Hero />
   </Layout>
+  
 )
 
 export default IndexPage

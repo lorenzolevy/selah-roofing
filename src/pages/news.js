@@ -9,6 +9,7 @@ const NewsPage = ({data}) => (
     <SEO title="News" />
     {data.allWordpressPost.nodes.map((node)=>(
         <Post
+            key={node.slug}
             title={node.title}
             image={node.featured_media.localFile.childImageSharp.fluid}
             excerpt={node.excerpt}

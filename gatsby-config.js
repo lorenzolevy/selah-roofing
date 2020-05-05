@@ -14,6 +14,24 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Rubik`,
+          },
+          {
+            family: `Roboto`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Source Sans Pro`,
+            variants: [`400`, `600`]
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -35,8 +53,9 @@ module.exports = {
     resolve: `gatsby-source-wordpress`,
     options: {
       baseUrl: `wpselah.chaiselevy.com`,
-      protocol: `http`,
+      protocol: `https`,
       hostingWPCOM: false,
+      useACF: true,
     }, 
   }
   ],

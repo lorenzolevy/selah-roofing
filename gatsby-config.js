@@ -6,6 +6,7 @@ module.exports = {
     image: '/src/components/images/selah-icon.png'
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

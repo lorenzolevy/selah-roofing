@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Selah Roofing`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Serving the Los Angeles, CA area, Selah Roofing is a roofing contractor committed to excellence. We provide our customers with affordable residential roofing, commercial roofing, and rain gutters, and can help you finish new construction or property remodeling in no time at all.`,
     author: `@lorenzolevy`,
     image: '/src/components/images/selah-icon.png'
   },

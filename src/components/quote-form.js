@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { navigate } from "@reach/router"  
 import styled from "styled-components";
 import QuoteContacts from "./quote-contacts"
 import PrimaryButton from "./primary-button"
@@ -127,12 +128,18 @@ const QuoteForm = () => (
                     phone: '',
                     ref: 'google',
                     description: '',
-                    comms: 'call'
+                    comms: 'call',
+                    recaptcha: '' 
                 }}
                 validationSchema={SignupSchema}
-                onSubmit={values => {
+                onSubmit={(values, actions) => {
                     // same shape as initial values
+                    
                     console.log(values);
+                    navigate(`/thankyou`);
+                    actions.setSubmitting(false);
+                    
+                    
                 }}
                     >
             {({ errors, touched }) => (

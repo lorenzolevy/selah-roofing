@@ -38,6 +38,8 @@ const CallWrap = styled.div`
       display: none;
     }
   }
+
+
   
 
 `
@@ -105,13 +107,17 @@ const NavMenu = styled.nav`
     height: 100%;
     top: 76px;
     margin: 0;
+    padding: 1.2rem 1.6rem 0 2.4rem;
     left: -100%;
     transition: .5s;
     z-index: 110
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     > a {
-      width: 100%;
-      height: 100%;
+      padding: .6rem 0 .3rem 0;
       display: block;
+      color: hsla(210, 73%, 95%, 1);
     }
   
 
@@ -125,8 +131,8 @@ const NavMenu = styled.nav`
   @media (max-width: 430px){
     top: 60px;
   }
-  @media (max-width: 372px){
-    top: 76px;
+  @media (max-width: 320px){
+    top: 86px;
   }
 
 `

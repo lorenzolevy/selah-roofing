@@ -8,9 +8,9 @@ import "../styles/layout.css"
 import styled from "styled-components"
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEnvelope, faPhoneAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt)
+library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes)
 
 
 const Container = styled.div`

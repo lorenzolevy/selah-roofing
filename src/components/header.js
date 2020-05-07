@@ -33,6 +33,12 @@ const CallWrap = styled.div`
       text-transform: uppercase;
     }
   }
+  @media (max-width:420px) {
+    > p {
+      display: none;
+    }
+  }
+  
 
 `
 
@@ -41,6 +47,9 @@ const Icon = styled(FontAwesomeIcon)`
     font-size: 1.8rem;
     color: hsla(210,73%,95%,.9);
     transform: translateY(20%);
+    &:hover {
+      color: rgba(128, 193, 255, 0.98);
+    }
 `
 
 const activeStyles = {
@@ -58,7 +67,6 @@ const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 100;
-
 `
 const Title = styled.h1`
   margin: 0;
@@ -75,6 +83,7 @@ const NavMenu = styled.nav`
   margin-left: 1.4rem;
   display: flex;
   flex-wrap: wrap;
+  z-index: 1001;
   > a {
     margin-right: 1rem;
     color: hsla(210, 20%, 80%, 1);
@@ -86,6 +95,40 @@ const NavMenu = styled.nav`
         color: rgba(128, 193, 255, 0.98);
       }
   }
+
+
+  @media (max-width: 980px){
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+    background-color: hsla(210,20%,11%,1);
+    height: 100%;
+    top: 76px;
+    margin: 0;
+    left: -100%;
+    transition: .5s;
+    z-index: 110
+    > a {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  
+
+  }
+  @media (max-width: 520px){
+    top: 72px;
+  }
+  @media (max-width: 450px){
+    top: 68px;
+  }
+  @media (max-width: 430px){
+    top: 60px;
+  }
+  @media (max-width: 372px){
+    top: 76px;
+  }
+
 `
 
 
@@ -96,8 +139,9 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Title>
       </StyledLink>
-      <NavMenu>
-      <StyledLink to ="/" activeStyle={activeStyles}>Home</StyledLink>
+      <input type="checkbox" id="res-menu" />
+      <NavMenu id="navigation">
+        <StyledLink to ="/" activeStyle={activeStyles}>Home</StyledLink>
         <StyledLink to ="/about" activeStyle={activeStyles}>About</StyledLink>
         <StyledLink to="/quote" activeStyle={activeStyles}>Contact</StyledLink>
         <StyledLink to ="/news" activeStyle={activeStyles}>News</StyledLink>
@@ -107,11 +151,17 @@ const Header = ({ siteTitle }) => (
       <CallWrap>
       <a style={{textDecoration: `none`}} href="tel:1-323-870-7046">
         <div>
-          <p>CALL</p>
+          <p id="num-text">CALL</p>
+          <p id="number">(323) 870-7046</p>
           <Icon icon={["fas", "phone-alt"]} />
         </div>
       </a>
       </CallWrap>
+      
+      <label htmlFor="res-menu">
+        <Icon icon={["fas", "bars"]} id="sign-one" />
+        <Icon icon={["fas", "times"]} id="sign-two"/>
+      </label>
       
   </StyledHeader>
 )

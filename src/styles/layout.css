@@ -1,3 +1,52 @@
+#sign-one, #sign-two {
+  cursor: pointer;
+  display: none;
+  transition: color 0.3s;
+  z-index: 111;
+  margin: 0 .6rem;
+  
+}
+
+#res-menu {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  #sign-one{
+    display: block;
+  }
+  #res-menu:checked ~ label #sign-one {
+    display: none;
+  }
+  
+  #res-menu:checked ~ label #sign-two {
+    display: block;
+  }
+
+  #res-menu:checked + nav {
+    left: 0;
+  }
+
+
+
+}
+
+
+
+@media (max-width: 1130px) {
+  #number {
+    display: none;
+
+  }
+}
+
+@media (max-width: 430px) {
+  #num-text {
+    display: none;
+
+  }
+}
+
 .offset {
   padding-left: .2rem;
 }
@@ -662,8 +711,14 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 520px) {
   html {
     font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 90%;
   }
 }

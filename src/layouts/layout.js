@@ -7,9 +7,12 @@ import Header from "../components/header"
 import "../styles/layout.css"
 import styled from "styled-components"
 
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core';
 
+config.autoAddCss = false; 
 library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes)
 
 

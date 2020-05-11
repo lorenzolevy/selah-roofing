@@ -5,13 +5,20 @@ import FsLightbox from 'fslightbox-react'
 
 
 const Grid = styled.div`
-    @media (max-width: 580px) {
+    @media (max-width: 680px) {
+      > div > div {
+        height: 270px;
+        margin-bottom: 3px;
+      }
+    }
+    @media (max-width: 1150px) and (min-width: 680px) {
+        grid-template-columns: repeat(2, 1fr);
+        > div > div {
+          height: 300px;
+        }
 
     }
-    @media (max-width: 980px) and (min-width: 580px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 980px) {
+    @media (min-width: 1150px) {
         grid-template-columns: repeat(3, 1fr);
     }
     display: grid;
@@ -19,13 +26,15 @@ const Grid = styled.div`
       position: relative;
       overflow: hidden!important;
     }  
+    max-width: 2000px;
+    margin: 0 auto;
 `
 const CardWrap = styled.div`
     overflow: hidden;
 `
 
 const ProjectCard = styled(Img)`
-  height: 600px;
+  height: 350px;
   position: relative;
   display: flex;
   flex-direction: column;

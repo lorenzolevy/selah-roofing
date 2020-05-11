@@ -148,48 +148,55 @@ const QuoteForm = () => (
                         <HalfField>
                             <StyledLabel htmlFor="name">NAME</StyledLabel>
                             {errors.name && touched.name ? (<div className="error">{errors.name}</div>) : null}
-                            <Field name="name" />
+                            <Field name="name" id="name" />
+                            
                         </HalfField>
                         
                         <HalfField>
                             <StyledLabel htmlFor="email">EMAIL</StyledLabel>
                             {errors.email && touched.email ? <div className="error">{errors.email}</div> : null}
-                            <Field name="email" type="email" />                       
+                            <Field name="email" type="email" id="email" />
+                                                   
                         </HalfField>
                         
                         <HalfField>
                             <StyledLabel htmlFor="address">ADDRESS</StyledLabel>
                             {errors.address && touched.address ? (<div className="error">{errors.address}</div>) : null}
-                            <Field name="address" />                       
+                            <Field name="address" id="address" />
+                                                   
                         </HalfField>
 
                         <HalfField>
                             <StyledLabel htmlFor="phone">PHONE NUMBER</StyledLabel>
-                            {errors.phone && touched.phone ? (<div className="error">{errors.phone}</div>) : null}
-                            <Field name="phone" />
+                                {errors.phone && touched.phone ? (<div className="error">{errors.phone}</div>) : null}
+                                <Field name="phone" id="phone" />
+                            
                         </HalfField>
 
                         <HalfField>
                             <StyledLabel htmlFor="ref">REFERRAL</StyledLabel>
-                                <Field as="select" name="ref">
+                                <Field as="select" name="ref" id="ref">
                                     <option value="google">Google</option>
                                     <option value="yelp">Yelp</option>
                                     <option value="friend">Acquaintance</option>
                                 </Field>
+                            
                         </HalfField>
 
                         <HalfField>
                             <StyledLabel htmlFor="comms">METHOD OF COMMUNICATION</StyledLabel>
-                                <Field as="select" name="comms">
+                                <Field as="select" name="comms" id="comms">
                                     <option value="call">Call</option>
                                     <option value="email">Email</option>
                                     <option value="text">Text</option>
                                 </Field>
+                            
                         </HalfField>
 
                         <FullField>
                             <StyledLabel htmlFor="description">PROJECT DESCRIPTION</StyledLabel>
-                            <Field component="textarea" name="description" rows="10" />
+                                <Field component="textarea" name="description" id="description" rows="10" />
+                            
                         </FullField>
                     </FieldsContainer>
 

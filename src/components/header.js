@@ -140,7 +140,7 @@ const NavMenu = styled.nav`
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-      <StyledLink to="/"> 
+      <StyledLink title="Navigate to home" to="/"> 
         <Title>
           {siteTitle}
         </Title>
@@ -155,7 +155,7 @@ const Header = ({ siteTitle }) => (
       </NavMenu>
       
       <CallWrap>
-      <a style={{textDecoration: `none`}} href="tel:1-323-870-7046">
+      <a title="Click to call Selah Roofing" style={{textDecoration: `none`}} href="tel:1-323-870-7046">
         <div>
           <p id="num-text">CALL</p>
           <p id="number">(323) 870-7046</p>

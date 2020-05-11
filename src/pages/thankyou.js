@@ -80,7 +80,7 @@ const ThanksPage = () => (
     <SEO title="Thank You!" />
     <StaticQuery
         query={graphql`
-            query {
+            {
                 hero: file(relativePath: { eq: "thankyou.jpeg" }) {
                     childImageSharp {
                         fluid(maxWidth: 4000) {

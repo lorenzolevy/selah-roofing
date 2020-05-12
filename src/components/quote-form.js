@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { navigate } from "@reach/router"  
 import styled from "styled-components";
+import Recaptcha from "react-recaptcha"
 import QuoteContacts from "./quote-contacts"
 import PrimaryButton from "./primary-button"
 
@@ -109,7 +110,6 @@ const encode = (data) => {
       .join("&");
   }
 
-
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
       .max(50, 'Too Long!')
@@ -123,7 +123,17 @@ const SignupSchema = Yup.object().shape({
         .required('Required'),  
   });
 
-const QuoteForm = () => (
+function QuoteForm() {
+    const [token, setToken] = useState(null)
+
+    useEffect(() => {
+      const script = document.createElement("script")
+      script.src = "https://www.google.com/recaptcha/api.js"
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    }, [])
+    return(
     <Container>
         <PrimarySection>
             <Formik
@@ -134,16 +144,16 @@ const QuoteForm = () => (
                     phone: '',
                     ref: 'google',
                     description: '',
-                    comms: 'call',
-                    recaptcha: '' 
+                    comms: 'call' 
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={(values, actions) => {
                     // same shape as initial values
+                    if (token!== null){
                     fetch("/", {
                         method: "POST",
                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: encode({ "form-name": "quote-form-selah", ...values })
+                        body: encode({ "form-name": "quote-form-selah", ...values, "g-recaptcha-response": token, })
                       })
                       .then(() => {
                         navigate(`/thankyou`);
@@ -152,10 +162,11 @@ const QuoteForm = () => (
                           alert('Something went wrong... Please try again!')
                       })
                       .finally(() => actions.setSubmitting(false))
+                    }
                 }}
                     >
             {({ errors, touched }) => (
-                <Form name="quote-form-selah" data-netlify={true} data-netlify-honeypot="bot-field">
+                <Form name="quote-form-selah" data-netlify={true} data-netlify-honeypot="bot-field" data-netlify-recaptcha={true}>
                     <FieldsContainer>
                         <Field type="hidden" name="bot-field" id="bot-field" />
                         <HalfField>
@@ -213,8 +224,20 @@ const QuoteForm = () => (
                         </FullField>
                     </FieldsContainer>
 
+                    <Recaptcha
+                        sitekey={process.env.SITE_RECAPTCHA_KEY}
+                        render="explicit"
+                        theme="dark"
+                        verifyCallback={response => {
+                            setToken(response)
+                        }}
+                        onloadCallback={() => {
+                            console.log("done loading!")
+                        }}
+                        />
+
                     <PrimaryButton type="submit">Submit</PrimaryButton>
-                    <div class="g-recaptcha" data-sitekey="6LdegfUUAAAAAA1rup8ahX5YwyMDaQA0mi6mNH11"></div>
+
                 </Form>
             )}
             </Formik>
@@ -223,6 +246,7 @@ const QuoteForm = () => (
             <QuoteContacts />
         </SecondarySection>
   </Container>
-);
+  )
+}
 
 export default QuoteForm;

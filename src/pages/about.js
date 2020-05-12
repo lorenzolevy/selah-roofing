@@ -5,74 +5,116 @@ import BgImg from "gatsby-background-image"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
+const HeroTitle = styled.h1`
+  font-family: Roboto;
+  color: hsla(210,73%,95%,1);
+  width: 100%;
+  font-size: 2.6rem;
+  &:after {
+      content: "";
+      background-color: hsla(210,73%,95%,1);
+      display: block;
+      height: 2px;
+      margin: 1.6rem 0 1.2rem 0;
+      width: 100%;
+    }
+  @media(max-width: 780px){
+    font-size: 2rem;
+  }
+`
+
+const SectionTitle = styled(HeroTitle)`
+&:after {
+  content: "";
+
+  display: none;
+
+}
+margin-bottom: .6rem;
+`
+
 const AboutHero = styled(BgImg)`
-  height: 46vh;
+  height: 50vh;
   width: 100%;
   display: flex;
-  background-size: cover;
-
-`
-
-const ServicesTitle = styled.h1`
-  background-color: hsla(210,20%,11%,1);
-  color: white;
-  margin-bottom: 0;
-  text-align: center;
-  padding: .6rem;
-  text-transform: uppercase;
-  letter-spacing: .3rem;
-  font-family: Source Sans Pro;
-  
-`
-
-const Commercial = styled(BgImg)`
-  height: 46vh;
-  margin-right: 3px;
-  background-position: center;
-  @media(max-width:1300px) {
-    width: 100%;
-  }
-
-  @media(min-width:1300px) {
+  margin-bottom: 3px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+  @media(max-width: 340px) {
     
-    width: 33.33%;
-  }
-`
-
-const Residential = styled(BgImg)`
-  height: 46vh;
-  @media(max-width:1300px) {
-    width: 100%;
-  }
-
-  @media(min-width:1300px) {
+    height: 100vh;
     
-    width: 33.33%;
   }
-  
 `
-const Gutters = styled(BgImg)`
-  height: 46vh;
-  width: 33.33%;
-  
-  @media(max-width:1300px) {
-    width: 100%;
-  }
 
-  @media(min-width:1300px) {
-    margin-left: 3px;
-    width: 33.33%;
-  }
-`
 const ThirdsContainer = styled.div`
+  > div {
+    height: 500px;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   display: flex;
   width: 100%;
   @media(max-width:1300px) {
     flex-direction: column;
     > div {
+      width: 100%;
       margin-bottom: 3px;
+
     }
   }
+  @media(max-width:730px) {
+    flex-direction: column;
+    > div {
+      margin-bottom: 3px;
+      height: 300px;
+    }
+  }
+`
+
+const ContentWrap = styled.div`
+    padding: 2rem 3rem 0 2.4rem;
+    max-width: 1000px;
+    > p {
+        max-width: 600px;
+        display: block;
+        font-size: 1rem; 
+        letter-spacing: 0.15rem;
+        font-family: Source Sans Pro;
+        margin-bottom: .6rem;
+        font-weight: 600;
+        color: hsla(210,73%,95%,1);
+        text-transform: uppercase;
+        padding-bottom: .8rem;
+    }
+
+
+`
+
+const ServicesContentWrap = styled(ContentWrap)`
+
+
+  > h1 {
+    font-size: 2rem;
+    @media(max-width: 780px){
+      font-size: 1.8rem;
+    }
+    
+  }
+
+    > p {
+      font-size: 1rem;
+      font-family: Roboto;
+      letter-spacing: 0.05rem;
+      font-weight: 400;
+      text-transform: none;
+      color: hsla(210,73%,95%,.8);
+      padding: 0;
+    }
+
 
 `
 
@@ -80,14 +122,26 @@ const ThirdsContainer = styled.div`
 const AboutPage = ({ data }) => (
   <Layout>
     <SEO title="About" />
-    <AboutHero fluid={[`linear-gradient(hsla(210, 20%, 67%, 0.52),hsla(210, 20%, 67%, 0.52))`,data.aboutHero.childImageSharp.fluid]} />
-    <ServicesTitle>Our Services</ServicesTitle>
+    <AboutHero fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.7),hsla(216, 63%, 22%, 0.2))`]}>
+      <ContentWrap><HeroTitle>Protecting Your Homes and Businesses From Weathering...<br/> In Style.</HeroTitle><p>trusted roofers in the Los Angeles area committed to excellence since 2013. Check out our services.</p></ContentWrap>
+    </AboutHero>
     <ThirdsContainer>
-      <Commercial fluid={[`linear-gradient(hsla(210, 87%, 37%, 0.4),hsla(210, 87%, 37%, 0.4))`,data.commercial.childImageSharp.fluid]}>
+      <BgImg fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.6),hsla(216, 63%, 22%, 0.6))`,data.commercial.childImageSharp.fluid]}>
+        <ServicesContentWrap><SectionTitle>Commercial</SectionTitle><p>
+        We provide top-quality installation for businesses and apartments, and can have your new roofing installed in no time at all.
+          </p></ServicesContentWrap>
+      </BgImg>
 
-      </Commercial>
-      <Residential fluid={[`linear-gradient(hsla(210, 100%, 57%, 0.4),hsla(210, 100%, 57%, 0.4))`,data.residential.childImageSharp.fluid]} />
-      <Gutters fluid={[`linear-gradient(hsla(209, 100%, 75%, 0.4),hsla(209, 100%, 75%, 0.4))`,data.gutters.childImageSharp.fluid]} />
+      <BgImg fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.6),hsla(216, 63%, 22%, 0.6))`,data.residential.childImageSharp.fluid]}>
+      <ServicesContentWrap><SectionTitle>Residential</SectionTitle><p>
+      Our roofers are professional. They can assist with leak repair and roof remodeling, allowing you to get the exact look you want.
+          </p></ServicesContentWrap>
+      </BgImg>
+      <BgImg fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.6),hsla(216, 63%, 22%, 0.6))`,data.gutters.childImageSharp.fluid]}>
+      <ServicesContentWrap><SectionTitle>Gutters</SectionTitle><p>
+      We specialize in seamless rain gutters, which will help prevent leaks while adhering to the aesthetic standards of your property.
+          </p></ServicesContentWrap>
+      </BgImg>
     </ThirdsContainer>
   </Layout>
 )

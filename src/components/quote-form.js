@@ -17,6 +17,10 @@ const StyledLabel = styled.label`
     font-weight: 600;
 `
 
+const ReCapContainer = styled.div`
+    padding: 1.6rem 0 0 1.2rem;
+`
+
 const Container = styled.div`
     
 
@@ -162,6 +166,8 @@ function QuoteForm() {
                           alert('Something went wrong... Please try again!')
                       })
                       .finally(() => actions.setSubmitting(false))
+                    } else {
+                        alert("Remember to check the reCaptcha Validator!")
                     }
                 }}
                     >
@@ -223,18 +229,19 @@ function QuoteForm() {
                             
                         </FullField>
                     </FieldsContainer>
-
-                    <Recaptcha
-                        sitekey={process.env.SITE_RECAPTCHA_KEY}
-                        render="explicit"
-                        theme="dark"
-                        verifyCallback={response => {
-                            setToken(response)
-                        }}
-                        onloadCallback={() => {
-                            console.log("done loading!")
-                        }}
+                    <ReCapContainer>
+                        <Recaptcha
+                            sitekey={process.env.SITE_RECAPTCHA_KEY}
+                            render="explicit"
+                            theme="dark"
+                            verifyCallback={response => {
+                                setToken(response)
+                            }}
+                            onloadCallback={() => {
+                                console.log("done loading!")
+                            }}
                         />
+                    </ReCapContainer>
 
                     <PrimaryButton type="submit">Submit</PrimaryButton>
 

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 
 const PrimaryButton = styled.button`
-    margin: 1.6rem 1.2rem 0rem 1.2rem;
+    margin: .8rem 1.2rem 0rem 1.2rem;
     font-size: .8rem;
     letter-spacing: 0.15rem;
     background-color: hsla(210, 20%, 11%, 1);

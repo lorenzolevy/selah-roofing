@@ -3,7 +3,9 @@ module.exports = {
     title: `Selah Roofing`,
     description: `Serving the Los Angeles, CA area, Selah Roofing is a roofing contractor committed to excellence. We provide our customers with affordable residential roofing, commercial roofing, and rain gutters, and can help you finish new construction or property remodeling in no time at all.`,
     author: `@lorenzolevy`,
-    image: '/src/components/images/selah-icon.png'
+    url: "https://selahroofingcorp.com",
+    image: 'https://wpselah.chaiselevy.com/wp-content/uploads/2020/05/brown-and-gray-painted-house-in-front-of-road-1396122-scaled.jpg',
+    keywords: 'roofing, los angeles, roofers in la, quality roofing, roofing repair, roofing contractors, full service roofing, roof',
   },
   plugins: [
     `gatsby-plugin-styled-components`,

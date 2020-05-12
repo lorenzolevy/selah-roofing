@@ -103,6 +103,12 @@ const SecondarySection = styled.section`
     display: block;
 `
 
+const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
 
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
@@ -134,17 +140,24 @@ const QuoteForm = () => (
                 validationSchema={SignupSchema}
                 onSubmit={(values, actions) => {
                     // same shape as initial values
-                    
-                    console.log(values);
-                    navigate(`/thankyou`);
-                    actions.setSubmitting(false);
-                    
-                    
+                    fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: encode({ "form-name": "quote-form-selah", ...values })
+                      })
+                      .then(() => {
+                        navigate(`/thankyou`);
+                      })
+                      .catch(()=> {
+                          alert('Something went wrong... Please try again!')
+                      })
+                      .finally(() => actions.setSubmitting(false))
                 }}
                     >
             {({ errors, touched }) => (
-                <Form>
+                <Form name="quote-form-selah" data-netlify={true} data-netlify-honeypot="bot-field">
                     <FieldsContainer>
+                        <Field type="hidden" name="bot-field" id="bot-field" />
                         <HalfField>
                             <StyledLabel htmlFor="name">NAME</StyledLabel>
                             {errors.name && touched.name ? (<div className="error">{errors.name}</div>) : null}
@@ -201,6 +214,7 @@ const QuoteForm = () => (
                     </FieldsContainer>
 
                     <PrimaryButton type="submit">Submit</PrimaryButton>
+                    <div class="g-recaptcha" data-sitekey="6LdegfUUAAAAAA1rup8ahX5YwyMDaQA0mi6mNH11"></div>
                 </Form>
             )}
             </Formik>

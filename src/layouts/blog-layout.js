@@ -16,7 +16,7 @@ const LayoutWrap = styled.section`
 `
 
 const Content = styled.div`
-    max-width: 1440px;
+    max-width: 1000px;
     
     padding: 1.4rem 1rem 1rem 1rem;
     > h2 {

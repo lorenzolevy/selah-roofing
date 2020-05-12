@@ -131,7 +131,7 @@ const NavMenu = styled.nav`
   @media (max-width: 430px){
     top: 60px;
   }
-  @media (max-width: 320px){
+  @media (max-width: 340px){
     top: 86px;
   }
 

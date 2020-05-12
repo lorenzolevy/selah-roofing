@@ -20,6 +20,9 @@ const Grid = styled.div`
     }
     @media (min-width: 1150px) {
         grid-template-columns: repeat(3, 1fr);
+        > div > div {
+          height: 450px;
+        }
     }
     display: grid;
     > div {

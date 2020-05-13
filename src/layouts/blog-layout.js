@@ -37,9 +37,11 @@ const BlogLayout = ({data}) => {
     
     <LayoutWrap>
         <SEO
-                title={innertext(post.title)}
-                description={innertext(post.excerpt)}
-            />
+            title={innertext(post.title)}
+            description={innertext(post.excerpt)}
+            nimage={post.featured_media.source_url}
+            nkeywords={post.categories.map(res => res.name).join(', ')}
+        />
         <Header siteTitle="Selah Roofing" />
     <Content>
 
@@ -62,6 +64,10 @@ export const query = graphql`
             featured_media{
                 source_url
             }
+            categories{
+                name
+            }
+            
         }
     }
 `

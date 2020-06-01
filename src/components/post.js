@@ -61,7 +61,7 @@ const Post = (props) => (
     
         <CardWrapper>
         <div>
-            <CardLink to={"/"+props.slug}>
+            <CardLink to={"/news/"+props.slug}>
                 <Card fluid={props.image}>
                     <CardInner>
                         <h2>{props.title}</h2>

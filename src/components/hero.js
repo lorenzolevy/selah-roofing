@@ -98,7 +98,7 @@ const HeroSection = () => (
                     <ContentWrap>
                         <HeroTitle>We are Selah Roofing Corp.</HeroTitle>
                         <div>
-                            <p>Help us get started on your new roof today.</p>
+                            <p>Lets build something sturdy together.</p>
                             <Link to="/quote"><PrimaryButton>Get a Free Quote</PrimaryButton></Link>
                         </div>
                     </ContentWrap>

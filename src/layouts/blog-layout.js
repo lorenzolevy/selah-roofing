@@ -17,7 +17,6 @@ const LayoutWrap = styled.section`
 
 const Content = styled.div`
     max-width: 1000px;
-    
     padding: 1.4rem 1rem 1rem 1rem;
     > h2 {
         font-size: 1.6rem;
@@ -31,7 +30,7 @@ const Content = styled.div`
 `
 
 const BlogLayout = ({data}) => {
-    const post = data.wordpressPost
+    const post = data.wpcontent.postBy;
     return(
     <>
     
@@ -39,8 +38,9 @@ const BlogLayout = ({data}) => {
         <SEO
             title={innertext(post.title)}
             description={innertext(post.excerpt)}
-            nimage={post.featured_media.source_url}
-            nkeywords={post.categories.map(res => res.name).join(', ')}
+            nimage={post.featuredImage.sourceUrl}
+            nkeywords={post.categories.nodes.map(res => res.name).join(', ')}
+            
         />
         <Header siteTitle="Selah Roofing" />
     <Content>
@@ -56,20 +56,24 @@ const BlogLayout = ({data}) => {
 }
 
 export const query = graphql`
-    query($slug: String!){
-        wordpressPost(slug:{eq: $slug}){
+    query GET_POST($slug: String!){
+        wpcontent{        
+            postBy(slug: $slug){
             title
             excerpt
             content
-            featured_media{
-                source_url
+            featuredImage{
+                sourceUrl
             }
             categories{
-                name
+                nodes {
+                    name
+                }
             }
             
+            }
         }
     }
-`
+` 
 
 export default BlogLayout

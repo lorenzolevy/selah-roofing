@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import Img from "gatsby-background-image"
 import styled from "styled-components"
-import FsLightbox from 'fslightbox-react'
+import FsLightbox from 'react-image-lightbox'
+import "react-image-lightbox/style.css";
 
 
 const Grid = styled.div`
@@ -87,36 +88,50 @@ export default class Gallery extends Component {
     super(props);
     this.state = {
       showLightbox: false,
-      imageIndex : 0,
+      imageIndex: 0,
+      listIndex: 0,
   };
 }
   render() {
     const { data } = this.props;
-    const { showLightbox, imageIndex } = this.state;
+    const { showLightbox, imageIndex, listIndex } = this.state;
+    const galsList = data.wpcontent.projects.nodes.map(node=>node.projectFields.gallery.map(url=>url.sourceUrl));
     return (
      <Fragment>
        <Grid>
-          {data.allWordpressAcfProjects.nodes.map((node, index) =>
+          {data.wpcontent.projects.nodes.map((node, index) =>
           <CardWrap 
-            key={node.acf.title}
-            onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
+            key={node.projectFields.title}
+            onClick={() => this.setState({ showLightbox: true, imageIndex: index, listIndex: 0 })}
             >
-            <ProjectCard fluid={node.acf.image.localFile.childImageSharp.fluid}>
+            <ProjectCard fluid={node.projectFields.image.imageFile.childImageSharp.fluid}>
               <CardInner>
-                <h1>{node.acf.title}</h1>
-                <p>{node.acf.description}</p>
+                <h1>{node.projectFields.title}</h1>
+                <p>{node.projectFields.description}</p>
               </CardInner>
             </ProjectCard>
           </CardWrap>
           )}
         </Grid>
+        {showLightbox && (
         <FsLightbox
-          toggler={showLightbox}
-          sources={data.allWordpressAcfProjects.nodes.map(node=>node.acf.image.localFile.childImageSharp.fluid.src)}
-          sourceIndex={imageIndex}
+          mainSrc={galsList[imageIndex][listIndex]}
+          nextSrc={galsList[imageIndex][(listIndex + 1) % galsList[imageIndex].length]}
+          prevSrc={galsList[imageIndex][(listIndex + galsList[imageIndex].length - 1) % galsList[imageIndex].length]}
+          onCloseRequest={() => this.setState({ showLightbox: false })}
+          onMovePrevRequest={() =>
+            this.setState({
+              listIndex: (listIndex + galsList[imageIndex].length - 1) % galsList[imageIndex].length
+            })
+          }
+          onMoveNextRequest={() =>
+            this.setState({
+              listIndex: (listIndex + 1) % galsList[imageIndex].length
+            })
+          }
         />
+        )}
       </Fragment>
-  
     );
   }
   

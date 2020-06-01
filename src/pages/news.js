@@ -7,11 +7,11 @@ import Post from "../components/post"
 const NewsPage = ({data}) => (
   <Layout>
     <SEO title="News" />
-    {data.allWordpressPost.nodes.map((node)=>(
+    {data.wpcontent.posts.nodes.map(node=>(
         <Post
             key={node.slug}
             title={node.title}
-            image={node.featured_media.localFile.childImageSharp.fluid}
+            image={node.featuredImage.imageFile.childImageSharp.fluid}
             excerpt={node.excerpt}
             slug={node.slug}
         />
@@ -20,14 +20,16 @@ const NewsPage = ({data}) => (
 )
 
 export const query = graphql`
-    {
-        allWordpressPost {
+{
+    wpcontent {
+        posts {
             nodes {
-                slug
-                title
                 excerpt
-                featured_media {
-                    localFile {
+                title
+                slug
+                featuredImage {
+                    sourceUrl
+                    imageFile {
                         childImageSharp {
                             fluid(maxWidth: 980) {
                                 ...GatsbyImageSharpFluid
@@ -38,6 +40,7 @@ export const query = graphql`
             }
         }
     }
+}
 `
 
 export default NewsPage

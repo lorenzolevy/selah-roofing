@@ -18,15 +18,20 @@ const ProjectsPage = ({data}) => {
 
 export const query = graphql`
 {
-    allWordpressAcfProjects {
+  wpcontent {
+    projects {
       nodes {
-        acf {
+        projectFields {
           description
           title
+          gallery {
+            sourceUrl
+          }
           image {
-            localFile {
+            sourceUrl
+            imageFile {
               childImageSharp {
-                fluid(maxWidth: 1800) {
+                fluid(maxWidth: 900) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -36,6 +41,8 @@ export const query = graphql`
       }
     }
   }
+}
+
 `
 
 export default ProjectsPage

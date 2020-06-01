@@ -59,12 +59,11 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   { 
-    resolve: `gatsby-source-wordpress`,
+    resolve: `gatsby-source-graphql`,
     options: {
-      baseUrl: `wpselah.chaiselevy.com`,
-      protocol: `https`,
-      hostingWPCOM: false,
-      useACF: true,
+      fieldName: `wpcontent`,
+      typeName: `WPGraphQL`,
+      url: `https://wpselah.chaiselevy.com/graphql`,
     }, 
   }
   ],

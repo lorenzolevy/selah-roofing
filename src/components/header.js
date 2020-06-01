@@ -150,7 +150,7 @@ const Header = ({ siteTitle }) => (
         <StyledLink to ="/" activeStyle={activeStyles}>Home</StyledLink>
         <StyledLink to ="/about" activeStyle={activeStyles}>About</StyledLink>
         <StyledLink to="/quote" activeStyle={activeStyles}>Contact</StyledLink>
-        <StyledLink to ="/news" activeStyle={activeStyles}>News</StyledLink>
+        <StyledLink to ="/news" partiallyActive={true} activeStyle={activeStyles}>News</StyledLink>
         <StyledLink to ="/projects" activeStyle={activeStyles}>Projects</StyledLink>
       </NavMenu>
       

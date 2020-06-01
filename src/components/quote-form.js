@@ -72,6 +72,18 @@ const FullField = styled.div`
         padding: 10px 12px;
         
     }
+    > input,select {
+        
+        width: 100%;
+        line-height: 1.8rem;
+        height: 2.4rem;
+        display: block;
+        padding: 0 12px;
+        > div {
+            color: red;
+        }
+        
+    }
 `
 const PrimarySection = styled.section`
 border-bottom: solid 1px hsla(210,20%,25%,.98);
@@ -131,7 +143,10 @@ function QuoteForm() {
                     email: '',
                     address: '',
                     phone: '',
+                    escrow: 'no',
                     ref: 'google',
+                    type: 'replace',
+                    claim: 'no',
                     description: '',
                     comms: 'call' 
                 }}
@@ -186,6 +201,34 @@ function QuoteForm() {
                         </HalfField>
 
                         <HalfField>
+                            <StyledLabel htmlFor="type">PROJECT TYPE</StyledLabel>
+                                <Field as="select" name="type" id="type">
+                                    <option value="replace">Replacement</option>
+                                    <option value="repair">Repair</option>
+                                </Field>
+                            
+                        </HalfField>
+
+                        <HalfField>
+                            <StyledLabel htmlFor="escrow">IN ESCROW?</StyledLabel>
+                                <Field as="select" name="escrow" id="escrow">
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </Field>
+                            
+                        </HalfField>
+
+                        <FullField>
+                            <StyledLabel htmlFor="claim">IS THIS AN INSURANCE CLAIM?</StyledLabel>
+                                <Field as="select" name="claim" id="claim">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </Field>
+                            
+                        </FullField>
+
+
+                        <HalfField>
                             <StyledLabel htmlFor="ref">REFERRAL</StyledLabel>
                                 <Field as="select" name="ref" id="ref">
                                     <option value="google">Google</option>
@@ -204,6 +247,8 @@ function QuoteForm() {
                                 </Field>
                             
                         </HalfField>
+
+
 
                         <FullField>
                             <StyledLabel htmlFor="description">PROJECT DESCRIPTION</StyledLabel>

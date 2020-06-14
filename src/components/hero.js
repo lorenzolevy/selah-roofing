@@ -79,27 +79,40 @@ const HeroTitle = styled.h1`
 const HeroSection = () => (
     <StaticQuery
         query={graphql`
-            query {
-                hero: file(relativePath: { eq: "hero.jpg" }) {
-                    childImageSharp {
-                        fluid(maxWidth: 1800) {
+        {
+            wpcontent {
+              flex(id: "ZmxleDo3Mw==") {
+                flexFields {
+                  buttontext
+                  descriptiontext
+                  fieldGroupName
+                  titletext
+                  hero {
+                    imageFile {
+                      childImageSharp {
+                        fluid (maxWidth: 1800) {
                             ...GatsbyImageSharpFluid
                         }
+                      }
                     }
+                    sourceUrl
+                  }
                 }
-            }`}
+              }
+            }
+          }`}
         render = {data => {
-            const imageData = data.hero.childImageSharp.fluid
+            const imageData = data.wpcontent.flex.flexFields.hero.imageFile.childImageSharp.fluid
             return (
                 <StyledHero
                     tag="section"
                     fluid={[`linear-gradient(to right, rgba(65, 82, 98, 0.8),rgba(65, 82, 98, 0.1))`,imageData]}
                 >
                     <ContentWrap>
-                        <HeroTitle>We are Selah Roofing Corp.</HeroTitle>
+                        <HeroTitle>{data.wpcontent.flex.flexFields.titletext}</HeroTitle>
                         <div>
-                            <p>Lets build something sturdy together.</p>
-                            <Link to="/quote"><PrimaryButton>Get a Free Quote</PrimaryButton></Link>
+                        <p>{data.wpcontent.flex.flexFields.descriptiontext}</p>
+                        <Link to="/quote"><PrimaryButton>{data.wpcontent.flex.flexFields.buttontext}</PrimaryButton></Link>
                         </div>
                     </ContentWrap>
                 </StyledHero>

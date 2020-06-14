@@ -123,7 +123,7 @@ const AboutPage = ({ data }) => (
   <Layout>
     <SEO title="About" />
     <AboutHero fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.7),hsla(216, 63%, 22%, 0.2))`]}>
-      <ContentWrap><HeroTitle>Protecting Your Homes and Businesses From Weathering...<br/> In Style.</HeroTitle><p>trusted roofers supported by over 100 years of senior management experience in the Los Angeles area. Check out our services.</p></ContentWrap>
+      <ContentWrap><HeroTitle>Protecting Your Homes and Businesses From Weathering...<br/> In Style.</HeroTitle><p>trusted roofers supported by over 100 years of senior management experience in the Los Angeles area.</p></ContentWrap>
     </AboutHero>
     <ThirdsContainer>
       <BgImg fluid={[`linear-gradient(hsla(216, 63%, 22%, 0.6),hsla(216, 63%, 22%, 0.6))`,data.commercial.childImageSharp.fluid]}>

@@ -9,11 +9,12 @@ import styled from "styled-components"
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { faYelp, faFacebook, faGoogle, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core';
 
 config.autoAddCss = false; 
-library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes)
+library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt, faBars, faTimes, faYelp, faFacebook, faGoogle, faInstagram )
 
 
 const Container = styled.div`

@@ -70,7 +70,7 @@ const QuoteContacts = () => (
         <Wrapper>
         
             <ContactItemWrap>
-            <a href="mailto:selahroofingcorp@gmail.com">
+            <a href="mailto:calvin.selahroofing@gmail.com ">
                 <Icon icon={["fas", "envelope"]} />
                 <p>selahroofingcorp@gmail.com</p>
             </a>

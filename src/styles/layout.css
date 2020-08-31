@@ -1,10 +1,15 @@
-#sign-one, #sign-two {
+html,
+body {
+  font-family: Roboto !important;
+}
+
+#sign-one,
+#sign-two {
   cursor: pointer;
   display: none;
   transition: color 0.3s;
   z-index: 111;
-  margin: 0 .6rem;
-  
+  margin: 0 0.6rem;
 }
 
 #res-menu {
@@ -12,13 +17,13 @@
 }
 
 @media (max-width: 980px) {
-  #sign-one{
+  #sign-one {
     display: block;
   }
   #res-menu:checked ~ label #sign-one {
     display: none;
   }
-  
+
   #res-menu:checked ~ label #sign-two {
     display: block;
   }
@@ -26,29 +31,22 @@
   #res-menu:checked + nav {
     left: 0;
   }
-
-
-
 }
-
-
 
 @media (max-width: 1130px) {
   #number {
     display: none;
-
   }
 }
 
 @media (max-width: 430px) {
   #num-text {
     display: none;
-
   }
 }
 
 .offset {
-  padding-left: .2rem;
+  padding-left: 0.2rem;
 }
 
 .fslightbox-toolbar > div[title="Enter fullscreen"] {
@@ -56,11 +54,13 @@
 }
 
 .error {
- color: rgba(128, 193, 255, 0.98);
- font-family: Rubik;
- margin-bottom: .2rem;
- margin-top: -.5rem;
- font-size: .8rem;
+  color: rgba(128, 193, 255, 0.98);
+  font-family: Roboto;
+  margin-bottom: 0.2rem;
+  margin-top: -0.5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
 }
 
 html {
@@ -171,7 +171,7 @@ hr {
   overflow: visible;
 }
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active,
 textarea:-webkit-autofill,
@@ -180,22 +180,21 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: hsla(210,20%,90%,.9);
+  -webkit-text-fill-color: hsla(210, 20%, 90%, 0.9);
   -webkit-box-shadow: 0 0 0 30px #33404d inset !important;
 }
 
 select > option {
-  background-color: hsla(210,20%,25%, 1);
+  background-color: hsla(210, 20%, 25%, 1);
 }
 button,
 input,
 optgroup,
 select,
-textarea  {
-
-  color: hsla(210,20%,90%,.9);
+textarea {
+  color: hsla(210, 20%, 90%, 0.9);
   font-family: Source Sans Pro;
-  background-color: hsla(210,20%,25%, .3);
+  background-color: hsla(210, 20%, 25%, 0.3);
   margin: 0;
   border: none;
   padding: 0 1rem;
@@ -213,7 +212,6 @@ optgroup {
 }
 button,
 input {
-  
   overflow: visible;
 }
 button,

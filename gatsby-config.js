@@ -4,8 +4,10 @@ module.exports = {
     description: `Serving the Los Angeles, CA area, Selah Roofing is a roofing contractor committed to excellence. We provide our customers with affordable residential roofing, commercial roofing, and rain gutters, and can help you finish new construction or property remodeling in no time at all.`,
     author: `@lorenzolevy`,
     url: "https://selahroofingcorp.com",
-    image: 'https://wpselah.chaiselevy.com/wp-content/uploads/2020/05/brown-and-gray-painted-house-in-front-of-road-1396122-scaled.jpg',
-    keywords: 'roofing, los angeles, roofers in la, quality roofing, roofing repair, roofing contractors, full service roofing, roof',
+    image:
+      "https://wpselah.chaiselevy.com/wp-content/uploads/2020/05/brown-and-gray-painted-house-in-front-of-road-1396122-scaled.jpg",
+    keywords:
+      "roofing, los angeles, roofers in la, quality roofing, roofing repair, roofing contractors, full service roofing, roof",
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -32,11 +34,11 @@ module.exports = {
           },
           {
             family: `Roboto`,
-            variants: [`400`, `700`]
+            variants: [`300`, `400`, `500`, `600`, `700`, `800`],
           },
           {
             family: `Source Sans Pro`,
-            variants: [`400`, `600`]
+            variants: [`400`, `600`],
           },
         ],
       },
@@ -58,13 +60,13 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
-  { 
-    resolve: `gatsby-source-graphql`,
-    options: {
-      fieldName: `wpcontent`,
-      typeName: `WPGraphQL`,
-      url: `https://wpselah.chaiselevy.com/graphql`,
-    }, 
-  }
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `wpcontent`,
+        typeName: `WPGraphQL`,
+        url: `https://wpselah.chaiselevy.com/graphql`,
+      },
+    },
   ],
 }

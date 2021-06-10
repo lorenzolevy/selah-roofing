@@ -165,11 +165,11 @@ const Header = ({ siteTitle }) => (
       <a
         title="Click to call Selah Roofing"
         style={{ textDecoration: `none` }}
-        href="tel:1-323-870-7046"
+        href="tel:1-323-870-7086"
       >
         <div>
           <p id="num-text">CALL</p>
-          <p id="number">(323) 870-7046</p>
+          <p id="number">(323) 870-7086</p>
           <Icon icon={["fas", "phone-alt"]} />
         </div>
       </a>

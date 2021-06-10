@@ -26,20 +26,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Rubik`,
-          },
-          {
-            family: `Roboto`,
-            variants: [`300`, `400`, `500`, `600`, `700`, `800`],
-          },
-          {
-            family: `Source Sans Pro`,
-            variants: [`400`, `600`],
-          },
+          `Rubik`,
+          `Roboto\:300,400,500,600,700,800`,
+          `source sans pro\:400,600`,
         ],
       },
     },

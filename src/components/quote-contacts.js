@@ -51,9 +51,9 @@ const QuoteContacts = () => (
   <>
     <Wrapper>
       <ContactItemWrap>
-        <a href="tel:1-323-870-7046">
+        <a href="tel:1-323-870-7086">
           <Icon icon={["fas", "phone-alt"]} />
-          <p>(323) 870-7046</p>
+          <p>(323) 870-7086</p>
         </a>
       </ContactItemWrap>
     </Wrapper>
@@ -62,10 +62,11 @@ const QuoteContacts = () => (
       <ContactItemWrap>
         <a href="mailto:calvin.selahroofing@gmail.com ">
           <Icon icon={["fas", "envelope"]} />
-          <p>selahroofingcorp@gmail.com</p>
+          <p>calvin.selahroofingcorp@gmail.com</p>
         </a>
       </ContactItemWrap>
     </Wrapper>
+
     <Wrapper>
       <ContactItemWrap>
         <a
